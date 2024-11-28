@@ -2,7 +2,7 @@ from odoo import fields, models
 
 
 class Ruta(models.Model):
-    _name = "FleetIQ.ruta"
+    _name = "fleetIQ.ruta"
     _description = "Rutas de los vehiculos"
 
     # Campos básicos
@@ -27,7 +27,7 @@ class Ruta(models.Model):
 
     # Relación con RutaVehiculo
     ruta_vehiculo_ids = fields.One2many(
-        'FleetIQ.rutaVehiculo', 'ruta_id', string="Vehículos Asignados"
+        'fleetIQ.rutavehiculo', 'ruta_id', string="Vehículos Asignados"
     )
 
 

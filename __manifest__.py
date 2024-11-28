@@ -8,7 +8,5 @@
     Descripción de nuestro modulo
     """,
 
-    'data': [
-        'views/mymodule_view.xml',
-    ],
+    'data': [],
 }
