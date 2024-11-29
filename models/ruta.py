@@ -15,7 +15,7 @@ class Ruta(models.Model):
 
     # Campo para ver las matrículas de los vehículos relacionados
     vehicles = fields.Many2many(
-        comodel_name="fleetIQ.vehiculo",  
+        comodel_name="fleetIQ.vehiculo",
         relation="fleetIQ_rutavehiculo",
         column1="ruta_id",
         column2="vehiculo_matricula",
