@@ -7,3 +7,11 @@ class RutaVehiculo(models.Model):
     ruta_id = fields.Many2one(
         'FleetIQ.ruta', string="Ruta", required=True, ondelete="cascade"
     )
+
+    envio_id = fields.Many2one(
+        'FleetIQ.envio', string="Envio", required=True, ondelete="cascade"
+    )
+
+    vehiculo_id = fields.Many2one(
+        'FleetIQ.vehiculo', string="Vehiculo", required=True, ondelete="cascade"
+    )

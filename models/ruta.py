@@ -3,9 +3,8 @@ from odoo import fields, models
 
 class Ruta(models.Model):
     _name = "fleetIQ.ruta"
-    _description = "Rutas de los vehiculos"
+    _description = "Rutas de los vehículos"
 
-    # Campos básicos
     name = fields.Char(string="Nombre de la Ruta", required=True)
     origen = fields.Char(string="Origen", required=True)
     destino = fields.Char(string="Destino", required=True)
@@ -14,20 +13,11 @@ class Ruta(models.Model):
     localizador = fields.Char(string="Localizador", required=True)
     fecha_creacion = fields.Date(string="Fecha de Creación", default=fields.Date.today)
 
-    # Campo de estado
-    estado = fields.Selection(
-        [
-            ('nueva', 'Nueva'),
-            ('en_proceso', 'En Proceso'),
-            ('completada', 'Completada'),
-        ],
-        string="Estado",
-        default="nueva",
+    # Campo para ver las matrículas de los vehículos relacionados
+    vehicles = fields.Many2many(
+        comodel_name="fleetIQ.vehiculo",  
+        relation="fleetIQ_rutavehiculo",
+        column1="ruta_id",
+        column2="vehiculo_matricula",
+        string="Vehículos"
     )
-
-    # Relación con RutaVehiculo
-    ruta_vehiculo_ids = fields.One2many(
-        'fleetIQ.rutavehiculo', 'ruta_id', string="Vehículos Asignados"
-    )
-
-
