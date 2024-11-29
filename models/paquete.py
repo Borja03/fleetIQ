@@ -2,11 +2,11 @@ from odoo import models, fields, api
 from datetime import datetime
 
 class Paquete(models.Model):
-    _name = 'fleetIQ.paquete'
+    _name = "fleetiq.paquete"
     _description = 'Modelo de Paquete'
 
     # Numeric ID (will be automatically created by Odoo)
-    name = fields.Char(string='Identificador', required=True)
+    paquete_id = fields.Integer(string="ID")
 
     # Peso (Weight) attribute
     peso = fields.Float(string='Peso', required=True)

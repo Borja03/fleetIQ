@@ -1,9 +1,9 @@
 from odoo import models, fields
 
 class Envio(models.Model):
-    _name = "fleetIQ.envio"
+    _name = "fleetiq.envio"
 
-    id = fields.Integer(string="ID")
+    envio_id = fields.Integer(string="ID")
     fecha_envio = fields.Datetime(string="Fecha de Envio")
     fecha_entrega = fields.Datetime(string="Fecha de Entrega")
     num_paquetes = fields.Integer(string="Número de Paquetes")
@@ -13,10 +13,13 @@ class Envio(models.Model):
         ('entregado', 'Entregado')
     ], string="Estado del Envío")
 
-    vehiculo_id = fields.Many2one(
-        'fleetIQ.vehiculo',
-        string="Vehículo",
-        related="vehiculo_id.matricula",
+    # Relación Many2one con el vehículo
+    vehiculo_id = fields.Many2one('fleetiq.vehiculo', string="Vehículo")
+
+    # Relacionar con la matrícula del vehículo, usando el campo related
+    vehiculo_matricula = fields.Char(
+        string="Matrícula del Vehículo",
+        related="vehiculo_id.matricula",  # Aquí accedemos correctamente al campo 'matricula' del vehículo
         store=True
     )
 
@@ -30,7 +33,7 @@ class Envio(models.Model):
     def _compute_ruta(self):
         for record in self:
             if record.ruta_id:
-                ruta = self.env['fleetIQ.ruta'].search([
+                ruta = self.env['fleetiq.ruta'].search([
                     ('id', '=', record.ruta_id)
                 ], limit=1)
                 if ruta:

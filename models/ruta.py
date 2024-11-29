@@ -2,9 +2,10 @@ from odoo import fields, models
 
 
 class Ruta(models.Model):
-    _name = "fleetIQ.ruta"
+    _name = "fleetiq.ruta"
     _description = "Rutas de los vehículos"
 
+    ruta_id = fields.Integer(string="ID")
     name = fields.Char(string="Nombre de la Ruta", required=True)
     origen = fields.Char(string="Origen", required=True)
     destino = fields.Char(string="Destino", required=True)
@@ -15,7 +16,7 @@ class Ruta(models.Model):
 
     # Campo para ver las matrículas de los vehículos relacionados
     vehicles = fields.Many2many(
-        comodel_name="fleetIQ.vehiculo",
+        comodel_name="fleetiq.vehiculo",
         relation="fleetIQ_rutavehiculo",
         column1="ruta_id",
         column2="vehiculo_matricula",

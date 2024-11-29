@@ -6,10 +6,10 @@ class TipoEnum(Enum):
     TRABAJADOR = auto()
 
 class User(models.Model):
-    _name = 'fleetIQ.user'
+    _name = 'fleetiq.user'
     _description = 'User Model'
 
-    id = fields.Integer(string='ID', required=True)
+    user_id = fields.Integer(string='ID', required=True)
     email = fields.Char(string='Email', required=True)
     passwd = fields.Char(string='Password', required=True)
     name = fields.Char(string='Name', required=True)
