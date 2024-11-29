@@ -1,0 +1,43 @@
+<odoo>
+    <record id="view_fleetiq_envio_tree" model="ir.ui.view">
+        <field name="name">fleetiq.envio.tree</field>
+        <field name="model">fleetiq.envio</field>
+        <field name="arch" type="xml">
+            <tree string="Envíos">
+                <!-- Definición de las columnas en la vista de lista -->
+                <field name="envio_id" />
+                <field name="fecha_envio" />
+                <field name="fecha_entrega" />
+                <field name="num_paquetes" />
+                <field name="estado" />
+                <field name="vehiculo_matricula" />
+                <field name="ruta_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fleetiq_envio_form" model="ir.ui.view">
+        <field name="name">fleetiq.envio.form</field>
+        <field name="model">fleetiq.envio</field>
+        <field name="arch" type="xml">
+            <form string="Envío">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="envio_id"/>
+                            <field name="fecha_envio"/>
+                            <field name="fecha_entrega"/>
+                            <field name="num_paquetes"/>
+                        </group>
+                        <group>
+                            <field name="estado"/>
+                            <field name="vehiculo_id"/>
+                            <field name="vehiculo_matricula" readonly="1"/>
+                            <field name="ruta_id" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

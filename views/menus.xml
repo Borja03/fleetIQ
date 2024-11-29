@@ -1,0 +1,20 @@
+<odoo>
+    <!-- Acción para abrir la vista de envíos -->
+    <record id="action_fleetiq_envio" model="ir.actions.act_window">
+        <field name="name">Envíos</field>
+        <field name="res_model">fleetiq.envio</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_fleetiq_envio_tree"/>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Menú principal en el que se añadirá el submenú -->
+    <menuitem id="menu_root_fleetiq" name="FleetIQ" sequence="10"/>
+
+    <!-- Menú para acceder a los envíos -->
+    <menuitem id="menu_fleetiq_envio"
+              name="Envíos"
+              parent="menu_root_fleetiq"
+              action="action_fleetiq_envio"
+              sequence="1"/>
+</odoo>

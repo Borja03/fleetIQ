@@ -1,0 +1,18 @@
+<odoo>
+    <!-- Crear el grupo 'Internal Users' -->
+    <record id="group_internal_users" model="res.groups">
+        <field name="name">Internal Users</field>
+        <field name="category_id" ref="base.module_category_users"/>
+    </record>
+
+    <!-- Permisos de acceso para el modelo 'fleetiq.envio' -->
+    <record id="access_fleetiq_envio_internal_users" model="ir.model.access">
+        <field name="name">access_fleetiq_envio_internal_users</field>
+        <field name="model_id" ref="model_fleetiq_envio"/>  <!-- Modelo 'fleetiq.envio' -->
+        <field name="group_id" ref="group_internal_users"/>  <!-- Grupo 'Internal Users' -->
+        <field name="perm_read" eval="True"/>  <!-- Permitir lectura -->
+        <field name="perm_write" eval="True"/>  <!-- Permitir escritura -->
+        <field name="perm_create" eval="True"/>  <!-- Permitir creación -->
+        <field name="perm_unlink" eval="True"/>  <!-- Permitir eliminación -->
+    </record>
+</odoo>
