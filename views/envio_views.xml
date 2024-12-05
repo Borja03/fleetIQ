@@ -1,4 +1,28 @@
 <odoo>
+    <record id="view_fleetiq_envio_kanban" model="ir.ui.view">
+        <field name="name">fleetiq.envio.kanban</field>
+        <field name="model">fleetiq.envio</field>
+        <field name="arch" type="xml">
+            <kanban string="Envíos">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_#{record.estado}">
+                            <div class="o_kanban_image">
+                                <field name="vehiculo_matricula"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong><field name="envio_id"/></strong>
+                                <div><field name="estado"/></div>
+                                <div><field name="num_paquetes"/></div>
+                                <div><field name="ruta_id"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="view_fleetiq_envio_tree" model="ir.ui.view">
         <field name="name">fleetiq.envio.tree</field>
         <field name="model">fleetiq.envio</field>
@@ -38,6 +62,36 @@
                     </group>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="view_fleetiq_envio_search" model="ir.ui.view">
+        <field name="name">fleetiq.envio.search</field>
+        <field name="model">fleetiq.envio</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Envíos">
+                <!-- Filtro por estado -->
+                <filter string="Pendiente" name="filter_pendiente" domain="[('estado', '=', 'pendiente')]"/>
+                <filter string="En Transito" name="filter_en_transito" domain="[('estado', '=', 'en_transito')]"/>
+                <filter string="Entregado" name="filter_entregado" domain="[('estado', '=', 'entregado')]"/>
+                <separator/>
+                <!-- Filtro por rango de fechas de envío -->
+                <filter string="Fecha Envío" name="filter_fecha_envio" domain="[]">
+                    <field name="fecha_envio" filter_domain="between"/>
+                </filter>
+                <separator/>
+                <!-- Filtro por rango de capacidad -->
+                <filter string="Capacidad" name="filter_capacidad" domain="[]">
+                    <field name="num_paquetes" filter_domain="between"/>
+                </filter>
+
+                <!-- Búsqueda por todos los campos -->
+                <field name="envio_id"/>
+                <field name="num_paquetes"/>
+                <field name="estado"/>
+                <field name="vehiculo_matricula"/>
+                <field name="ruta_id"/>
+            </search>
         </field>
     </record>
 </odoo>

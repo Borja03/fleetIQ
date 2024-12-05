@@ -4,7 +4,7 @@
         <field name="name">Envíos</field>
         <field name="res_model">fleetiq.envio</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="view_fleetiq_envio_tree"/>
+        <field name="view_id" ref="view_fleetiq_envio_kanban"/>
         <field name="context">{}</field>
     </record>
 
