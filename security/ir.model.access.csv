@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fleetiq_envio_internal_users,Access to fleetiq.envio for Internal Users,model_fleetiq_envio,group_internal_users,1,1,1,1
+access_fleetiq_envio_manager,Access to fleetiq.envio for Managers,model_fleetiq_envio,base.group_system,1,1,1,1
