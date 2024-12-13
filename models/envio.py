@@ -26,7 +26,7 @@ class Envio(models.Model):
     )
 
     # Campo calculado para la ruta
-    ruta_id = fields.Char(
+    localizador = fields.Char(
         string="Ruta",
         compute="_compute_ruta",
         store=True
