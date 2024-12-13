@@ -1,4 +1,31 @@
 <odoo>
+    <record id="view_fleetiq_envio_kanban" model="ir.ui.view">
+        <field name="name">fleetiq.envio.kanban</field>
+        <field name="model">fleetiq.envio</field>
+        <field name="arch" type="xml">
+            <kanban string="Envíos">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_#{record.estado}">
+                            <div class="o_kanban_image">
+                                <field name="vehiculo_matricula"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong><field name="usuario_id"/></strong>
+                                <div><field name="estado"/></div>
+                                <div>
+                                    <field name="num_paquetes"/>
+                                    <br/>
+                                    <field name="ruta_id"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="view_fleetiq_envio_tree" model="ir.ui.view">
         <field name="name">fleetiq.envio.tree</field>
         <field name="model">fleetiq.envio</field>
@@ -8,8 +35,9 @@
                 <field name="envio_id" />
                 <field name="fecha_envio" />
                 <field name="fecha_entrega" />
-                <field name="num_paquetes" />
                 <field name="estado" />
+                <field name="num_paquetes" />
+                <field name="usuario_id"/>
                 <field name="vehiculo_matricula" />
                 <field name="ruta_id" />
             </tree>
@@ -24,20 +52,41 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="envio_id"/>
+                            <field name="envio_id" readonly="1"/>
                             <field name="fecha_envio"/>
                             <field name="fecha_entrega"/>
                             <field name="num_paquetes"/>
                         </group>
                         <group>
-                            <field name="estado"/>
+                            <field name="estado" readonly="1"/>
                             <field name="vehiculo_id"/>
-                            <field name="vehiculo_matricula" readonly="1"/>
+                            <field name="usuario_id"/>
                             <field name="ruta_id" readonly="1"/>
                         </group>
                     </group>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="view_fleetiq_envio_search" model="ir.ui.view">
+        <field name="name">fleetiq.envio.search</field>
+        <field name="model">fleetiq.envio</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Envíos">
+                <!-- Filtro por estado -->
+                <filter string="Pendiente" name="filter_pendiente" domain="[('estado', '=', 'pendiente')]"/>
+                <filter string="En Transito" name="filter_en_transito" domain="[('estado', '=', 'en_transito')]"/>
+                <filter string="Entregado" name="filter_entregado" domain="[('estado', '=', 'entregado')]"/>
+                <separator/>
+
+                <!-- Búsqueda por todos los campos -->
+                <field name="envio_id"/>
+                <field name="num_paquetes"/>
+                <field name="estado"/>
+                <field name="vehiculo_matricula"/>
+                <field name="ruta_id"/>
+            </search>
         </field>
     </record>
 </odoo>

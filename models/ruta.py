@@ -4,7 +4,7 @@ from odoo import fields, models
 class Ruta(models.Model):
     _name = "fleetiq.ruta"
     _description = "Rutas de los vehículos"
-
+    
     localizador = fields.Char(string="Localizador", required=True)
     name = fields.Char(string="Nombre de la Ruta", required=True)
     origen = fields.Char(string="Origen", required=True)
