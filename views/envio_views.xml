@@ -16,7 +16,7 @@
                                 <div>
                                     <field name="num_paquetes"/>
                                     <br/>
-                                    <field name="ruta_id"/>
+                                    <field name="localizador"/>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                 <field name="num_paquetes" />
                 <field name="usuario_id"/>
                 <field name="vehiculo_matricula" />
-                <field name="ruta_id" />
+                <field name="localizador" />
             </tree>
         </field>
     </record>
@@ -61,7 +61,7 @@
                             <field name="estado" readonly="1"/>
                             <field name="vehiculo_id"/>
                             <field name="usuario_id"/>
-                            <field name="ruta_id" readonly="1"/>
+                            <field name="localizador" readonly="1"/>
                         </group>
                     </group>
                 </sheet>
@@ -85,7 +85,7 @@
                 <field name="num_paquetes"/>
                 <field name="estado"/>
                 <field name="vehiculo_matricula"/>
-                <field name="ruta_id"/>
+                <field name="localizador"/>
             </search>
         </field>
     </record>
