@@ -1,0 +1,72 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_fleetiq_ruta_tree" model="ir.ui.view">
+        <field name="name">fleetiq.ruta.tree</field>
+        <field name="model">fleetiq.ruta</field>
+        <field name="arch" type="xml">
+            <tree string="Rutas">
+                <field name="name"/>
+                <field name="origen"/>
+                <field name="destino"/>
+                <field name="distancia"/>
+                <field name="tiempo"/>
+                <field name="localizador"/>
+                <field name="fecha_creacion"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_fleetiq_ruta_form" model="ir.ui.view">
+        <field name="name">fleetiq.ruta.form</field>
+        <field name="model">fleetiq.ruta</field>
+        <field name="arch" type="xml">
+            <form string="Ruta">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="ruta_id" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="origen"/>
+                        <field name="destino"/>
+                        <field name="distancia"/>
+                        <field name="tiempo"/>
+                    </group>
+                    <group>
+                        <field name="localizador"/>
+                        <field name="fecha_creacion"/>
+                    </group>
+                    <notebook>
+                        <page string="Vehículos Relacionados">
+                            <field name="vehicles" widget="many2many_tags"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <!-- Botón Guardar -->
+                    <button string="Guardar" type="object" class="btn-primary" name="write"/>
+                    <!-- Botón Crear -->
+                    <button string="Crear Nuevo" type="object" class="btn-secondary" name="create"/>
+                    <!-- Botón Descartar -->
+                    <button string="Descartar" class="btn-link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción y menú para gestionar rutas -->
+    <record id="action_fleetiq_ruta" model="ir.actions.act_window">
+        <field name="name">Rutas</field>
+        <field name="res_model">fleetiq.ruta</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Gestiona las rutas de los vehículos. Puedes crear, editar y visualizar rutas desde aquí.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menú -->
+    <menuitem id="menu_fleetiq_ruta" name="Rutas" parent="base.menu_custom" action="action_fleetiq_ruta"/>
+</odoo>

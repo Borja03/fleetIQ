@@ -8,7 +8,15 @@
         <field name="context">{}</field>
     </record>
 
-    <!-- Menú principal en el que se añadirá el submenú -->
+    <!-- Acción para abrir la vista de rutas -->
+    <record id="action_fleetiq_ruta" model="ir.actions.act_window">
+        <field name="name">Rutas</field>
+        <field name="res_model">fleetiq.ruta</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Menú principal -->
     <menuitem id="menu_root_fleetiq" name="FleetIQ" sequence="10"/>
 
     <!-- Menú para acceder a los envíos -->
@@ -17,4 +25,11 @@
               parent="menu_root_fleetiq"
               action="action_fleetiq_envio"
               sequence="1"/>
+
+    <!-- Menú para acceder a las rutas -->
+    <menuitem id="menu_fleetiq_ruta"
+              name="Rutas"
+              parent="menu_root_fleetiq"
+              action="action_fleetiq_ruta"
+              sequence="2"/>
 </odoo>

@@ -12,6 +12,7 @@
         "security/res_groups.xml",
         #"security/ir.model.access.csv"
         "views/envio_views.xml",
+        "views/ruta_views.xml",
         "views/menus.xml",
     ],
 }

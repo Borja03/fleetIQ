@@ -5,13 +5,12 @@ class Ruta(models.Model):
     _name = "fleetiq.ruta"
     _description = "Rutas de los vehículos"
 
-    ruta_id = fields.Integer(string="ID")
+    localizador = fields.Char(string="Localizador", required=True)
     name = fields.Char(string="Nombre de la Ruta", required=True)
     origen = fields.Char(string="Origen", required=True)
     destino = fields.Char(string="Destino", required=True)
     distancia = fields.Float(string="Distancia (km)", required=True)
     tiempo = fields.Float(string="Tiempo Estimado (horas)", required=True)
-    localizador = fields.Char(string="Localizador", required=True)
     fecha_creacion = fields.Date(string="Fecha de Creación", default=fields.Date.today)
 
     # Campo para ver las matrículas de los vehículos relacionados
