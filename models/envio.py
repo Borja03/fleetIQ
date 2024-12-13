@@ -70,15 +70,15 @@ class Envio(models.Model):
 
     def _compute_ruta(self):
         for record in self:
-            if record.ruta_id:
+            if record.localizador:
                 ruta = self.env['fleetiq.ruta'].search([
-                    ('id', '=', record.ruta_id)
+                    ('id', '=', record.localizador)
                 ], limit=1)
                 if ruta:
                     origen_code = ruta.origen[:3] if ruta.origen else ''
                     destino_code = ruta.destino[:3] if ruta.destino else ''
-                    record.ruta_id = f"{origen_code}-{destino_code}"
+                    record.localizador = f"{origen_code}-{destino_code}"
                 else:
-                    record.ruta_id = ''
+                    record.localizador = ''
             else:
-                record.ruta_id = ''
+                record.localizador = ''
