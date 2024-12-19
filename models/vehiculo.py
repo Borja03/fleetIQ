@@ -10,3 +10,9 @@ class Vehiculo(models.Model):
     active = fields.Boolean(string="Activo")
     capacidad = fields.Integer(string="Capacidad del vehiculo")
     modelo = fields.Char(string="Modelo")
+
+    # Relación Many2one con el envío
+    envio_id = fields.Many2one('fleetiq.envio', string="Envío")
+
+    # Relación Many2one con la ruta
+    ruta_id = fields.Many2one('fleetiq.ruta', string="Ruta")
