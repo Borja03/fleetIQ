@@ -12,7 +12,8 @@
     <record id="action_fleetiq_ruta" model="ir.actions.act_window">
         <field name="name">Rutas</field>
         <field name="res_model">fleetiq.ruta</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="view_fleetiq_ruta_kanban"/>
         <field name="context">{}</field>
     </record>
 
