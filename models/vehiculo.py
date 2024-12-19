@@ -6,7 +6,7 @@ class Vehiculo(models.Model):
     vehiculo_id = fields.Integer(string="ID")
     fecha_itv = fields.Datetime(string="Fecha de ITV")
     fecha_matriculacion = fields.Datetime(string="Fecha de Matriculacion")
-    matricula = fields.Char(string="Número de Paquetes")
+    matricula = fields.Char(string="Matrícula")
     active = fields.Boolean(string="Activo")
     capacidad = fields.Integer(string="Capacidad del vehiculo")
     modelo = fields.Char(string="Modelo")
