@@ -1,0 +1,81 @@
+<odoo>
+    <record id="view_fleetiq_paquete_kanban" model="ir.ui.view">
+        <field name="name">fleetiq.paquete.kanban</field>
+        <field name="model">fleetiq.paquete</field>
+        <field name="arch" type="xml">
+            <kanban string="Paquetes">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_#{record.tamano}">
+                            <div class="o_kanban_image">
+                                <field name="enviador"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong><field name="receptor"/></strong>
+                                <div><field name="peso"/> kg</div>
+                                <div>
+                                    <field name="tamano"/>
+                                    <br/>
+                                    <field name="fecha_creacion"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_fleetiq_paquete_tree" model="ir.ui.view">
+        <field name="name">fleetiq.paquete.tree</field>
+        <field name="model">fleetiq.paquete</field>
+        <field name="arch" type="xml">
+            <tree string="Paquetes">
+                <field name="paquete_id" />
+                <field name="peso" />
+                <field name="tamano" />
+                <field name="enviador" />
+                <field name="receptor" />
+                <field name="fecha_creacion" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fleetiq_paquete_form" model="ir.ui.view">
+        <field name="name">fleetiq.paquete.form</field>
+        <field name="model">fleetiq.paquete</field>
+        <field name="arch" type="xml">
+            <form string="Paquete">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="paquete_id" readonly="1"/>
+                            <field name="peso"/>
+                            <field name="tamano"/>
+                        </group>
+                        <group>
+                            <field name="enviador"/>
+                            <field name="receptor"/>
+                            <field name="fecha_creacion" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fleetiq_paquete_search" model="ir.ui.view">
+        <field name="name">fleetiq.paquete.search</field>
+        <field name="model">fleetiq.paquete</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Paquetes">
+                <!-- Búsqueda por todos los campos -->
+                <field name="paquete_id"/>
+                <field name="peso"/>
+                <field name="tamano"/>
+                <field name="enviador"/>
+                <field name="receptor"/>
+            </search>
+        </field>
+    </record>
+</odoo>
