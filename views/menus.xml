@@ -12,24 +12,54 @@
     <record id="action_fleetiq_ruta" model="ir.actions.act_window">
         <field name="name">Rutas</field>
         <field name="res_model">fleetiq.ruta</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
         <field name="context">{}</field>
     </record>
 
+     <!-- Acción para abrir la vista de paquete -->
+    <record id="action_fleetiq_package" model="ir.actions.act_window">
+        <field name="name">Paquete</field>
+        <field name="res_model">fleetiq.paquete</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Acción para abrir la vista de vehiculo -->
+    <!--<record id="action_fleetiq_vehicle" model="ir.actions.act_window">
+        <field name="name">Vehiculo</field>
+        <field name="res_model">fleetiq.vehiculo</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{}</field>
+    </record>-->
+
     <!-- Menú principal -->
-    <menuitem id="menu_root_fleetiq" name="FleetIQ" sequence="10"/>
+    <menuitem id="menu_root_fleetiq" name="FleetIQ" sequence="0"/>
+
+    <!-- Menú para acceder a las paquete -->
+    <menuitem id="menu_fleetiq_package"
+              name="Paquete"
+              parent="menu_root_fleetiq"
+              action="action_fleetiq_package"
+              sequence="1"/>
 
     <!-- Menú para acceder a los envíos -->
     <menuitem id="menu_fleetiq_envio"
               name="Envíos"
               parent="menu_root_fleetiq"
               action="action_fleetiq_envio"
-              sequence="1"/>
+              sequence="2"/>
 
     <!-- Menú para acceder a las rutas -->
     <menuitem id="menu_fleetiq_ruta"
               name="Rutas"
               parent="menu_root_fleetiq"
               action="action_fleetiq_ruta"
-              sequence="2"/>
+              sequence="3"/>
+
+    <!-- Menú para acceder a las rutas -->
+    <!--<menuitem id="menu_fleetiq_vehicule"
+              name="Vehiculos"
+              parent="menu_root_fleetiq"
+              action="action_fleetiq_vehicle"
+              sequence="4"/>-->
 </odoo>
