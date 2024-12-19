@@ -67,4 +67,53 @@
 
     <!-- Menú -->
     <menuitem id="menu_fleetiq_ruta" name="Rutas" parent="base.menu_custom" action="action_fleetiq_ruta"/>
+
+     <!-- Kanban View -->
+    <record id="view_fleetiq_ruta_kanban" model="ir.ui.view">
+        <field name="name">fleetiq.ruta.kanban</field>
+        <field name="model">fleetiq.ruta</field>
+        <field name="arch" type="xml">
+            <kanban string="Rutas">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="o_kanban_record">
+                            <div class="o_kanban_primary_bottom">
+                                <strong><field name="name"/></strong>
+                                <div><field name="localizador"/></div>
+                            </div>
+                            <div>
+                                <field name="origen"/> ➔ <field name="destino"/>
+                            </div>
+                            <div>
+                                <span class="badge">Distancia: <field name="distancia"/> km</span>
+                                <span class="badge">Tiempo: <field name="tiempo"/> h</span>
+                            </div>
+                            <div class="o_kanban_secondary_bottom">
+                                <small>Creado: <field name="fecha_creacion"/></small>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_fleetiq_ruta_search" model="ir.ui.view">
+        <field name="name">fleetiq.ruta.search</field>
+        <field name="model">fleetiq.ruta</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Rutas">
+                <field name="name" string="Nombre"/>
+                <field name="origen" string="Origen"/>
+                <field name="destino" string="Destino"/>
+                <filter string="Rutas Recientes" name="recent_routes" domain="[('fecha_creacion', '>=', context_today())]"/>
+                <filter string="Distancia Mayor a 100km" name="long_routes" domain="[('distancia', '>', 100)]"/>
+                <group expand="1" string="Agrupar por">
+                    <filter string="Origen" name="group_by_origen" context="{'group_by': 'origen'}"/>
+                    <filter string="Destino" name="group_by_destino" context="{'group_by': 'destino'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 </odoo>
