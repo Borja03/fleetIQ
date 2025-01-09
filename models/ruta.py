@@ -14,9 +14,9 @@ class Ruta(models.Model):
 
     vehicles = fields.Many2many(
         comodel_name="fleetiq.vehiculo",
-        relation="fleetIQ_rutavehiculo",
+        relation="fleetIQ_vehiculo",
         column1="ruta_id",
-        column2="vehiculo_matricula",
+        column2="matricula",
         string="Vehículos"
     )
 
