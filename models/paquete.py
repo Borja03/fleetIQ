@@ -25,8 +25,9 @@ class Paquete(models.Model):
     receptor = fields.Char(string='Receptor', required=True)
 
     # Fecha de Creación attribute
-    fecha_creacion = fields.Datetime(string='Fecha de Creación', default=datetime.now)
-
+    #fecha_creacion = fields.Datetime(string='Fecha de Creación', default=datetime.now)
+    # Fecha de Creación attribute
+    fecha_creacion = fields.Datetime(string='Fecha de Creación', default=lambda self: fields.Datetime.now())
     # One2many relationship with Envio
     envio_id = fields.Many2one('envio.model', string='Envío')
 

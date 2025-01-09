@@ -64,6 +64,20 @@
         </field>
     </record>
 
+
+
+       <record id="action_fleetiq_paquete" model="ir.actions.act_window">
+        <field name="name">Paquete</field>
+        <field name="res_model">fleetiq.paquete</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Gestiona los paquetes. Puedes crear, editar y visualizar rutas desde aquí.
+            </p>
+        </field>
+    </record>
+
+
     <record id="view_fleetiq_paquete_search" model="ir.ui.view">
         <field name="name">fleetiq.paquete.search</field>
         <field name="model">fleetiq.paquete</field>
