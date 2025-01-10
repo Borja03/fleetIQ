@@ -14,5 +14,7 @@
         "views/envio_views.xml",
         "views/ruta_views.xml",
         "views/menus.xml",
+        "views/paquete.xml",
+        "views/vehiculo_views.xml"
     ],
 }
