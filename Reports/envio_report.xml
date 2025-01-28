@@ -1,0 +1,46 @@
+<odoo>
+    <template id="report_fleetiq_envio_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <div class="header">
+                        <h2 style="text-align: center; font-weight: bold;">Reporte de Envío</h2>
+                    </div>
+                    <div class="content">
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                            <tr>
+                                <td style="width: 50%; vertical-align: top; padding: 10px;">
+                                    <h4 style="border-bottom: 1px solid #ddd;">Datos del Envío</h4>
+                                    <p><strong>ID del Envío:</strong> <span t-esc="o.envio_id"/></p>
+                                    <p><strong>Estado:</strong> <span t-esc="o.estado"/></p>
+                                    <p><strong>Fecha de Envío:</strong> <span t-esc="o.fecha_envio"/></p>
+                                    <p><strong>Fecha de Entrega:</strong> <span t-esc="o.fecha_entrega"/></p>
+                                    <p><strong>Localizador:</strong> <span t-esc="o.localizador"/></p>
+                                </td>
+                                <td style="width: 50%; vertical-align: top; padding: 10px;">
+                                    <h4 style="border-bottom: 1px solid #ddd;">Datos del Usuario y Vehículo</h4>
+                                    <p><strong>Usuario:</strong> <span t-esc="o.usuario_id.name"/></p>
+                                    <p><strong>Matrícula del Vehículo:</strong> <span t-esc="o.vehiculo_matricula"/></p>
+                                    <p><strong>Número de Paquetes:</strong> <span t-esc="o.num_paquetes"/></p>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="margin-top: 30px; padding-top: 10px; border-top: 1px solid #ddd;">
+                            <p style="text-align: center; font-size: 12px; color: #888;">Este informe ha sido generado automáticamente por el sistema.</p>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <report
+        id="action_report_fleetiq_envio"
+        string="Reporte de Envío"
+        model="fleetiq.envio"
+        report_type="qweb-pdf"
+        name="module_name.report_fleetiq_envio_document"
+        file="module_name.report_fleetiq_envio_document"
+        print_report_name="'Envío_' + object.envio_id"
+    />
+</odoo>
