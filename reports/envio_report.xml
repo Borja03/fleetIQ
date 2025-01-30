@@ -1,6 +1,6 @@
 <odoo>
     <template id="report_fleetiq_envio_document">
-        <t t-call="web.html_container">
+        <t t-call="web.external_layout">
             <t t-foreach="docs" t-as="o">
                 <div class="page">
                     <div class="header">
@@ -26,7 +26,9 @@
                             </tr>
                         </table>
                         <div style="margin-top: 30px; padding-top: 10px; border-top: 1px solid #ddd;">
-                            <p style="text-align: center; font-size: 12px; color: #888;">Este informe ha sido generado automáticamente por el sistema.</p>
+                            <p style="text-align: center; font-size: 12px; color: #888;">
+                                Este informe ha sido generado automáticamente por el sistema.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -34,13 +36,15 @@
         </t>
     </template>
 
-    <report
-        id="action_report_fleetiq_envio"
-        string="Reporte de Envío"
-        model="fleetiq.envio"
-        report_type="qweb-pdf"
-        name="module_name.report_fleetiq_envio_document"
-        file="module_name.report_fleetiq_envio_document"
-        print_report_name="'Envío_' + object.envio_id"
-    />
+    <record id="action_report_fleetiq_envio" model="ir.actions.report">
+        <field name="name">Reporte de Envío</field>
+        <field name="model">fleetiq.envio</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">fleetiq.report_fleetiq_envio_document</field>
+        <field name="report_file">fleetiq.report_fleetiq_envio_document</field>
+        <field name="print_report_name">'Envío_' + (object.envio_id.name or '')</field>
+        <field name="binding_model_id" ref="model_fleetiq_envio"/>
+        <field name="binding_type">report</field>
+    </record>
+
 </odoo>
