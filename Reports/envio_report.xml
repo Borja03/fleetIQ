@@ -39,8 +39,8 @@
         string="Reporte de Envío"
         model="fleetiq.envio"
         report_type="qweb-pdf"
-        name="module_name.report_fleetiq_envio_document"
-        file="module_name.report_fleetiq_envio_document"
+        name="fleetiq.report_fleetiq_envio_document"
+        file="fleetiq.report_fleetiq_envio_document"
         print_report_name="'Envío_' + object.envio_id"
     />
 </odoo>
