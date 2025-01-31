@@ -13,9 +13,10 @@
         "security/ir.model.access.csv",
         "views/envio_views.xml",
         "views/ruta_views.xml",
-        "views/menus.xml",
         "views/paquete.xml",
         "views/vehiculo_views.xml",
-        "reports/envio_report.xml"
+        "views/menus.xml",
+        "reports/report_actions.xml",
+        "reports/envio_report.xml",
     ],
 }
