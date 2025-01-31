@@ -4,8 +4,8 @@
     <field name="name">Ruta Report</field>
     <field name="model">fleetiq.ruta</field>
     <field name="report_type">qweb-pdf</field>
-    <field name="report_name">fleetiq.report_fleetiq_ruta</field>
-    <field name="report_file">fleetiq.report_fleetiq_ruta</field>
+    <field name="report_name">fleetIQ.report_fleetiq_ruta</field>
+    <field name="report_file">fleetIQ.report_fleetiq_ruta</field>
     <field name="print_report_name">'Ruta Report - %s' % (object.name)</field>
     <field name="binding_model_id" ref="model_fleetiq_ruta"/>
     <field name="binding_type">report</field>
