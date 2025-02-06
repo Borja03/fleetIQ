@@ -1,7 +1,9 @@
 {
     'name': "FleetIQ",
     'version': '16.0',
-    'depends': [],
+    'depends': [
+        'project'
+    ],
     'author': "G5",
     'category': 'Category',
     'description': """
@@ -16,7 +18,11 @@
         "views/paquete.xml",
         "views/menus.xml",
         "views/vehiculo_views.xml",
-        "Reports/envio_report.xml",
-        "Reports/ruta_report.xml"
+        "views/menus.xml",
+        "views/project_views.xml",
+        "reports/report_actions.xml",
+        "reports/envio_report.xml",
+         "reports/ruta_report.xml",
+      
     ],
 }
