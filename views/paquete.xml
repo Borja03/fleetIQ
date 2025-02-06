@@ -78,4 +78,16 @@
             </search>
         </field>
     </record>
+
+       <record id="view_fleetiq_paquete_tree_inherit" model="ir.ui.view">
+    <field name="name">fleetiq.paquete.tree.inherit</field>
+    <field name="model">fleetiq.paquete</field>
+    <field name="inherit_id" ref="fleetIQ.view_fleetiq_paquete_tree"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='peso']" position="attributes">
+                <attribute name="optional">show</attribute>
+        </xpath>
+    </field>
+</record>
+
 </odoo>

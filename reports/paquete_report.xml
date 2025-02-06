@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Report Action -->
+    <record id="action_report_fleetiq_paquete" model="ir.actions.report">
+        <field name="name">Paquete Report</field>
+        <field name="model">fleetiq.paquete</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">fleetIQ.report_fleetiq_paquete</field>
+        <field name="report_file">fleetIQ.report_fleetiq_paquete</field>
+        <field name="print_report_name">'Paquete Report - %s' % (object.paquete_id)</field>
+        <field name="binding_model_id" ref="model_fleetiq_paquete"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Report Template -->
+    <template id="report_fleetiq_paquete">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <h2 style="text-align: center;">Reporte de Paquete</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID Paquete</th>
+                                <th>Peso (kg)</th>
+                                <th>Tamaño</th>
+                                <th>Enviador</th>
+                                <th>Receptor</th>
+                                <th>Fecha de Creación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="paquete">
+                                <tr>
+                                    <td><span t-field="paquete.paquete_id"/></td>
+                                    <td><span t-field="paquete.peso"/></td>
+                                    <td><span t-field="paquete.tamano"/></td>
+                                    <td><span t-field="paquete.enviador"/></td>
+                                    <td><span t-field="paquete.receptor"/></td>
+                                    <td><span t-field="paquete.fecha_creacion"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
