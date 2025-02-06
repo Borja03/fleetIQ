@@ -1,0 +1,20 @@
+<odoo>
+    <record id="project_task_collaborators" model="ir.ui.view">
+        <field name="name">project.task.collaborators</field>
+        <field name="model">project.task</field>  <!-- Cambiado de project.project a project.task -->
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="collaborators" string="Colaboradores">
+                    <field name="x_collaborator_ids" domain="[('id', 'not in', user_ids)]"/>
+                </page>
+                <page name="predecessor" string="Predecesores">
+                    <field name="x_predeccessor_ids" domain="[('id', 'not in', x_predeccessor_ids), ('id', '!=', id)]"/>
+                </page>
+                <page name="succesor" string="Sucesores">
+                    <field name="x_succesor_ids" domain="[('id', 'not in', x_succesor_ids), ('id', '!=', id)]"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
