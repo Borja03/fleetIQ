@@ -44,6 +44,40 @@
         </field>
     </record>
 
+    <!-- Vista inherit -->
+    <record id="view_fleetiq_envio_tree_inherit" model="ir.ui.view">
+        <field name="name">fleetiq.envio.tree.inherit</field>
+        <field name="model">fleetiq.envio</field>
+        <field name="inherit_id" ref="view_fleetiq_envio_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='envio_id']" position="attributes">
+                <attribute name="optional">show</attribute>
+            </xpath>
+            <xpath expr="//field[@name='fecha_envio']" position="attributes">
+                <attribute name="optional">show</attribute>
+            </xpath>
+            <xpath expr="//field[@name='fecha_entrega']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='estado']" position="attributes">
+                <attribute name="optional">show</attribute>
+            </xpath>
+            <xpath expr="//field[@name='num_paquetes']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='usuario_id']" position="attributes">
+                <attribute name="optional">show</attribute>
+            </xpath>
+            <xpath expr="//field[@name='vehiculo_matricula']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='localizador']" position="attributes">
+                <attribute name="optional">show</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
     <record id="view_fleetiq_envio_form" model="ir.ui.view">
         <field name="name">fleetiq.envio.form</field>
         <field name="model">fleetiq.envio</field>

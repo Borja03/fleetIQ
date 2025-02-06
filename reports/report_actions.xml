@@ -1,0 +1,10 @@
+<odoo>
+    <record id="action_report_fleetiq_envio" model="ir.actions.report">
+        <field name="name">Reporte de Envío</field>
+        <field name="model">fleetiq.envio</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">fleetIQ.report_fleetiq_envio</field>
+        <field name="binding_model_id" ref="model_fleetiq_envio"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

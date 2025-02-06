@@ -50,6 +50,17 @@ class Envio(models.Model):
             return last_envio.envio_id + 1
         return 1  # Si no hay envíos previos, empieza desde 1
 
+    @api.onchange('fecha_envio', 'fecha_entrega')
+    def _onchange_fechas(self):
+        # Si la fecha de envío cambia, recalcular el estado
+        self._compute_estado()
+
+    @api.constrains('fecha_envio', 'fecha_entrega')
+    def _check_fechas(self):
+        for record in self:
+            if record.fecha_envio and record.fecha_entrega and record.fecha_envio > record.fecha_entrega:
+                raise ValidationError("La fecha de envío no puede ser posterior a la fecha de entrega.")
+
     @api.depends('fecha_envio', 'fecha_entrega')
     def _compute_estado(self):
         for record in self:
