@@ -3,7 +3,7 @@
         <template id="report_fleetiq_envio">
             <t t-call="web.external_layout">
                 <t t-foreach="docs" t-as="o">
-                    <div class="page">
+                    <main class="page">
                         <div class="header">
                             <h2 style="text-align: center; font-weight: bold;">Reporte de Envío</h2>
                         </div>
@@ -32,7 +32,7 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </main>
                 </t>
             </t>
         </template>

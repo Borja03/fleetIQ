@@ -15,12 +15,11 @@ class Ruta(models.Model):
 
     vehicles = fields.Many2many(
         comodel_name="fleetiq.vehiculo",
-        relation="fleetIQ_vehiculo",
+        relation="fleetiq_ruta_vehiculo_rel",  # Unique relation table name
         column1="ruta_id",
-        column2="matricula",
+        column2="vehiculo_id",  # Ensure this column references the PK of fleetiq.vehiculo
         string="Vehículos"
     )
-
     @api.depends('origen', 'destino')
     def _compute_localizador(self):
         for record in self:

@@ -118,4 +118,17 @@
     </record>
 
 
+    <record id="view_fleetiq_ruta_tree_inherit" model="ir.ui.view">
+    <field name="name">fleetiq.ruta.tree.inherit</field>
+    <field name="model">fleetiq.ruta</field>
+    <field name="inherit_id" ref="fleetIQ.view_fleetiq_ruta_tree"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='origen']" position="attributes">
+                <attribute name="optional">show</attribute>
+        </xpath>
+    </field>
+</record>
+
+
 </odoo>
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_report_fleetiq_ruta" model="ir.actions.report">
+        <field name="name">Ruta Report</field>
+        <field name="model">fleetiq.ruta</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">fleetIQ.report_fleetiq_ruta</field>
+        <field name="report_file">fleetIQ.report_fleetiq_ruta</field>
+        <field name="print_report_name">'Ruta Report - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_fleetiq_ruta"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_fleetiq_ruta">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <h2>Ruta Report</h2>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Name</th>
+                            <th>Localizador</th>
+                            <th>Origen</th>
+                            <th>Destino</th>
+                            <th>Distancia</th>
+                            <th>Tiempo</th>
+                            <th>Fecha Creación</th>
+                        </tr>
+                        <t t-foreach="docs" t-as="ruta">
+                            <tr>
+                                <td><span t-field="ruta.name"/></td>
+                                <td><span t-field="ruta.localizador"/></td>
+                                <td><span t-field="ruta.origen"/></td>
+                                <td><span t-field="ruta.destino"/></td>
+                                <td><span t-field="ruta.distancia"/></td>
+                                <td><span t-field="ruta.tiempo"/></td>
+                                <td><span t-field="ruta.fecha_creacion"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="7">
+                                    <h3>Vehículos Relacionados</h3>
+                                    <ul>
+                                        <t t-foreach="ruta.vehicles" t-as="vehicle">
+                                            <li><span t-field="vehicle.name"/></li>
+                                        </t>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
