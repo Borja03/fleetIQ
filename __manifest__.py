@@ -16,10 +16,13 @@
         "views/envio_views.xml",
         "views/ruta_views.xml",
         "views/paquete.xml",
+        "views/menus.xml",
         "views/vehiculo_views.xml",
         "views/menus.xml",
         "views/project_views.xml",
         "reports/report_actions.xml",
         "reports/envio_report.xml",
+         "reports/ruta_report.xml",
+      
     ],
 }
