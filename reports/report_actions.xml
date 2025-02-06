@@ -6,5 +6,6 @@
         <field name="report_name">fleetIQ.report_fleetiq_envio</field>
         <field name="binding_model_id" ref="model_fleetiq_envio"/>
         <field name="binding_type">report</field>
+        <field name="print_report_name">'Envío_' + str(object.envio_id)</field>
     </record>
 </odoo>
