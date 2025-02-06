@@ -36,16 +36,6 @@
                                 <td><span t-field="ruta.tiempo"/></td>
                                 <td><span t-field="ruta.fecha_creacion"/></td>
                             </tr>
-                            <tr>
-                                <td colspan="7">
-                                    <h3>Vehículos Relacionados</h3>
-                                    <ul>
-                                        <t t-foreach="ruta.vehicles" t-as="vehicle">
-                                            <li><span t-field="vehicle.name"/></li>
-                                        </t>
-                                    </ul>
-                                </td>
-                            </tr>
                         </t>
                     </table>
                 </div>
