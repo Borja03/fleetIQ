@@ -22,6 +22,8 @@
         "views/project_views.xml",
         "reports/report_actions.xml",
         "reports/envio_report.xml",
+        "reports/paquete_report.xml",
+        "reports/vehicle_report.xml",
          "reports/ruta_report.xml",
       
     ],

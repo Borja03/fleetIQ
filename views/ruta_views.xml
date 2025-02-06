@@ -117,6 +117,7 @@
         </field>
     </record>
 
+
     <record id="view_fleetiq_ruta_tree_inherit" model="ir.ui.view">
     <field name="name">fleetiq.ruta.tree.inherit</field>
     <field name="model">fleetiq.ruta</field>

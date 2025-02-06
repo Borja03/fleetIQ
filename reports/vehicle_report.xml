@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <!-- Report Action -->
+   <record id="action_report_fleetiq_vehiculo" model="ir.actions.report">
+       <field name="name">Vehículo Report</field>
+       <field name="model">fleetiq.vehiculo</field>
+       <field name="report_type">qweb-pdf</field>
+       <field name="report_name">fleetIQ.report_fleetiq_vehiculo</field>
+       <field name="report_file">fleetIQ.report_fleetiq_vehiculo</field>
+       <field name="print_report_name">'Vehículo Report - %s' % (object.vehiculo_id)</field>
+       <field name="binding_model_id" ref="model_fleetiq_vehiculo"/>
+       <field name="binding_type">report</field>
+   </record>
+
+   <!-- Report Template -->
+   <template id="report_fleetiq_vehiculo">
+       <t t-call="web.html_container">
+           <t t-call="web.internal_layout">
+               <div class="page">
+                   <h2 style="text-align: center;">Reporte de Vehículo</h2>
+                   <table class="table table-bordered">
+                       <thead>
+                           <tr>
+                               <th>ID Vehículo</th>
+                               <th>Matrícula</th>
+                               <th>Modelo</th>
+                               <th>Capacidad</th>
+                               <th>Fecha ITV</th>
+                               <th>Fecha Matriculación</th>
+
+                           </tr>
+                       </thead>
+                       <tbody>
+                           <t t-foreach="docs" t-as="vehiculo">
+                               <tr>
+                                   <td><span t-field="vehiculo.vehiculo_id"/></td>
+                                   <td><span t-field="vehiculo.matricula"/></td>
+                                   <td><span t-field="vehiculo.modelo"/></td>
+                                   <td><span t-field="vehiculo.capacidad"/></td>
+                                   <td><span t-field="vehiculo.fecha_itv"/></td>
+                                   <td><span t-field="vehiculo.fecha_matriculacion"/></td>
+                               </tr>
+                           </t>
+                       </tbody>
+                   </table>
+               </div>
+           </t>
+       </t>
+   </template>
+</odoo>
+
+
